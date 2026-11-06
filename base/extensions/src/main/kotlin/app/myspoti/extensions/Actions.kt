@@ -53,7 +53,7 @@ enum class Action(
     PLAYBACK_QUEUE("playback.queue", Level.NORMAL, Area.PLAYBACK, "QueueMusic", "Edit the queue",
         "spotify.player addToQueue, playNext, moveInQueue, removeFromQueue, clearQueue (removals confirmed)"),
     PLAYBACK_MIRROR("playback.mirror", Level.CRITICAL, Area.PLAYBACK, "VolumeOff", "Mirror Spotify silently",
-        "myspoti.spotify.player.setLocalMute(on): keeps Spotify playing unheard on this phone while Myspoti's own player plays, which counts listens on your Spotify account (one extension at a time, cleared on track change, stop or when the extension goes)"),
+        "myspoti.spotify.player.setLocalMute(on): keeps Spotify playing unheard on this phone while Spotify X's own player plays, which counts listens on your Spotify account (one extension at a time, cleared on track change, stop or when the extension goes)"),
     PLAYBACK_EVENTS("playback.events", Level.NORMAL, Area.PLAYBACK, "GraphicEq", "Know what you play",
         "myspoti.player.current(); myspoti.on('track' | 'playback'); spotify.player state, queue, volume"),
     LYRICS_PROVIDE("lyrics.provide", Level.NORMAL, Area.LYRICS, "Lyrics", "Provide lyrics",
@@ -98,8 +98,8 @@ enum class Action(
         "myspoti.storage get/set/remove (512 KB)"),
     UI_STYLE("ui.style", Level.NORMAL, Area.OTHER, "Palette", "Change the look",
         "manifest \"ui\": colours, hidden parts, tab order, text size and Home blocks, applied by the app (never on protected surfaces)", takeover = true),
-    ATTEST("attest", Level.NORMAL, null, "Fingerprint", "Prove this is Myspoti",
-        "myspoti.attest enroll/publicKey/sign/reset: a signing key of its own in this phone's hardware keystore, so its server can tell its requests come from a genuine Myspoti install");
+    ATTEST("attest", Level.NORMAL, null, "Fingerprint", "Prove this is Spotify X",
+        "myspoti.attest enroll/publicKey/sign/reset: a signing key of its own in this phone's hardware keystore, so its server can tell its requests come from a genuine Spotify X install");
 
     companion object {
         fun of(key: String) = entries.firstOrNull { it.key == key }

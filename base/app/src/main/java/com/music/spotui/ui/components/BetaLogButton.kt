@@ -165,7 +165,7 @@ private fun LogsDialog(onDismiss: () -> Unit) {
 
 private fun copy(context: Context, text: String) {
     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    clipboard.setPrimaryClip(ClipData.newPlainText("Myspoti logs", text))
+    clipboard.setPrimaryClip(ClipData.newPlainText("Spotify X logs", text))
     Toast.makeText(context, R.string.beta_logs_copied, Toast.LENGTH_SHORT).show()
 }
 
