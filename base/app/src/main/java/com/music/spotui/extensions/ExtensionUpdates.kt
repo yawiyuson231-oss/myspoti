@@ -349,7 +349,7 @@ object ExtensionUpdates {
         val bytes = runCatching { File(folder, "previous.zip").readBytes() }.getOrElse { throw ExtensionException("the previous version is missing") }
         val p = ExtensionPackage.read(bytes)
         if (p.sha256 != prev.sha256) throw ExtensionException("the previous version changed on the phone")
-        blocked(id, p.sha256)?.let { throw ExtensionException("blocked by Myspoti: ${it.reason.ifBlank { "no reason given" }}") }
+        blocked(id, p.sha256)?.let { throw ExtensionException("blocked by Spotify X: ${it.reason.ifBlank { "no reason given" }}") }
         val refused = Extensions.manifest(id)?.let { Grants.refused(e, it) }.orEmpty()
         Extensions.stop(id)
         val current = File(folder, "package.zip").readBytes()
@@ -387,7 +387,7 @@ object ExtensionUpdates {
             writeAtomically(f, if (a.status == 404) "{}" else text)
         }
         Extensions.registry.value.extensions.forEach { e ->
-            blocked(e.id, e.sha256)?.let { b -> if (e.enabled) Extensions.disable(e.id, "blocked by Myspoti: ${b.reason.ifBlank { "no reason given" }}") }
+            blocked(e.id, e.sha256)?.let { b -> if (e.enabled) Extensions.disable(e.id, "blocked by Spotify X: ${b.reason.ifBlank { "no reason given" }}") }
         }
     }
 
